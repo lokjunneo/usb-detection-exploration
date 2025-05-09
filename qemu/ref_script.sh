@@ -6,12 +6,24 @@ curl -O https://nl.alpinelinux.org/alpine/v3.8/releases/x86_64/alpine-standard-3
 # Create image
 qemu-img create -f qcow2 alpine.qcow2 16G
 
-# Boot up
+# Install & Boot
 
 qemu-system-x86_64 \
     -m 2048 \
     -nic user,model=virtio \
-    -drive file=alpine.qcow2,media=disk,if=virtio \
-    -cdrom alpine-standard-3.8.0-x86_64.iso 
+    -boot d \
+    -hda alpine.qcow2 \
+    -cdrom alpine-standard-3.8.0-x86_64.iso
+
+# setup-alpine, use "sda" disk with "sys" installation
+# https://wiki.alpinelinux.org/wiki/QEMU#Install_Alpine_Linux_in_QEMU
+
+# Boot existing
+qemu-system-x86_64 \
+    -m 2048 \
+    -nic user,model=virtio \
+    -usb -device usb-ehci \
+    -boot d \
+    -hda alpine.qcow2
 
 # ctrl + option + 1 to switch between Qemu Monitor and Linux
