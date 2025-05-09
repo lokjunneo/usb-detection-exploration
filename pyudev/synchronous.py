@@ -35,7 +35,7 @@ for device in iter(monitor.poll, None):
         print("+"* 50)
         print("Action:", device.action)
         print("...")
-        # Loop below is not optimized
+        # for i in device.properties.keys():
         for i in possibly_useful_properties: 
             if i in device.properties:
                 print(f"{i}: {device.properties[i]}")
@@ -43,7 +43,7 @@ for device in iter(monitor.poll, None):
     elif (device.action == "remove"):
         print("-"* 50)
         print("Action:", device.action)
-        for i in possibly_useful_properties: 
+        for i in device.properties.keys():
             if i in device.properties:
                 print(f"{i}: {device.properties[i]}")
         print("+"* 50)
