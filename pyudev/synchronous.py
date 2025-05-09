@@ -43,8 +43,9 @@ for device in iter(monitor.poll, None):
     elif (device.action == "remove"):
         print("-"* 50)
         print("Action:", device.action)
-        if "ID_MODEL" in device.properties:
-            print(f"ID_MODEL: {device.properties[i]}")
+        for i in possibly_useful_properties: 
+            if i in device.properties:
+                print(f"{i}: {device.properties[i]}")
         print("+"* 50)
     
     # print(f"{device.action} - {device.device_node}")
