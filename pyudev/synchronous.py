@@ -34,9 +34,8 @@ for device in iter(monitor.poll, None):
     if (device.action == "add"):
         print("+"* 50)
         print("Action:", device.action)
-        print("...")
-        # for i in device.properties.keys():
-        for i in possibly_useful_properties: 
+        for i in device.properties.keys():
+        # for i in possibly_useful_properties: 
             if i in device.properties:
                 print(f"{i}: {device.properties[i]}")
         print("+"* 50)
@@ -46,7 +45,7 @@ for device in iter(monitor.poll, None):
         for i in device.properties.keys():
             if i in device.properties:
                 print(f"{i}: {device.properties[i]}")
-        print("+"* 50)
+        print("-"* 50)
     
     # print(f"{device.action} - {device.device_node}")
     
