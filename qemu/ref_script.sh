@@ -32,5 +32,30 @@ qemu-system-x86_64 \
 
 # ctrl + option + 1 to switch between Qemu Monitor and Linux
 
+# Boot existing in serial monitor
+
+# In Guest OS (use above command to access, run)
+# sudo nano /etc/default/grub
+
+# Then modify/add this lines
+# GRUB_TERMINAL=serial
+# GRUB_SERIAL_COMMAND="serial --speed=115200 --unit=0 --word=8 --parity=no --stop=1"
+# GRUB_CMDLINE_LINUX="console=tty0 console=ttyS0"
+
+qemu-system-x86_64 \
+    -m 2048 \
+    -nic user,model=virtio \
+    -nographic \
+    -serial mon:stdio \
+    -usb -device usb-ehci \
+    -k en-us \
+    -boot d \
+    -hda debian.qcow2
+
+# https://www.qemu.org/docs/master/system/mux-chardev.html
+# ctrl-a c switches between qemu console and debian 
+# (Press ctrl-a, release, then press c)
+
+
 # setup-alpine, use "sda" disk with "sys" installation
 # https://wiki.alpinelinux.org/wiki/QEMU#Install_Alpine_Linux_in_QEMU
