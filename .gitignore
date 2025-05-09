@@ -2,3 +2,9 @@ qemu/alpine-standard-3.8.0-x86_64.iso
 qemu/alpine-standard-3.19.1-x86_64.iso
 qemu/alpine.qcow2
 qemu/debian.img
+qemu/debian-12.10.0-amd64-netinst.iso
+qemu/debian-12.10.0-arm64-netinst.iso
+qemu/debian-testing-amd64-netinst.iso
+qemu/debian.qcow2
+.DS_Store
+qemu/.DS_Store
