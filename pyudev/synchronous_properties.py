@@ -12,15 +12,13 @@ for device in iter(monitor.poll, None):
         print("+"* 50)
         print("Action:", device.action)
         for i in device.properties.keys():
-            if i in device.properties:
-                print(f"{i}: {device.properties[i]}")
+            print(f"{i}: {device.properties[i]}")
         print("+"* 50)
     elif (device.action == "remove"):
         print("-"* 50)
         print("Action:", device.action)
         for i in device.properties.keys():
-            if i in device.properties:
-                print(f"{i}: {device.properties[i]}")
+            print(f"{i}: {device.properties[i]}")
         print("-"* 50)
     
     # print(f"{device.action} - {device.device_node}")
