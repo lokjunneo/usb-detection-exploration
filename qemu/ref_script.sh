@@ -34,8 +34,9 @@ qemu-system-x86_64 \
 
 # Boot existing in serial monitor
 
-# In Guest OS (use above command to access, run)
-# sudo nano /etc/default/grub
+# If GRUB is installed:
+#   In Guest OS (use above command to access, run)
+#   sudo nano /etc/default/grub
 
 # Then modify/add this lines
 # GRUB_TERMINAL=serial
@@ -55,7 +56,6 @@ qemu-system-x86_64 \
 # https://www.qemu.org/docs/master/system/mux-chardev.html
 # ctrl-a c switches between qemu console and debian 
 # (Press ctrl-a, release, then press c)
-
 
 # setup-alpine, use "sda" disk with "sys" installation
 # https://wiki.alpinelinux.org/wiki/QEMU#Install_Alpine_Linux_in_QEMU
