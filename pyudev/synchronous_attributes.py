@@ -8,18 +8,14 @@ monitor = pyudev.Monitor.from_netlink(context)
 monitor.filter_by('usb')
 
 for device in iter(monitor.poll, None):
-    if (device.action == "add"):
-        print("+"* 50)
+    for attr in device.attributes.available_attributes:
+        print("="*50)
         print("Action:", device.action)
-        for i in device.attributes.keys():
-            print(f"{i}: {device.attributes[i]}")
-        print("+"* 50)
-    elif (device.action == "remove"):
-        print("-"* 50)
-        print("Action:", device.action)
-        for i in device.attributes.keys():
-            print(f"{i}: {device.attributes[i]}")
-        print("-"* 50)
+        try:
+            print(f"{attr}: {device.attributes.asstring(attr)}")
+        except:
+            print(f"{attr}:") # No values
+        print("="*50)
     
     # print(f"{device.action} - {device.device_node}")
     
