@@ -10,7 +10,7 @@ on_disconnect = lambda device_id, device_info: print(f"Disconnected: ---\n{devic
 # https://github.com/Eric-Canas/USBMonitor?tab=readme-ov-file#api-reference
 monitor = USBMonitor(filter_devices= None) # Insert filter here
 
-# (Tested on Windows) cannot scan_monitor after start_monitor
+# (Tested on Windows) cannot use scan_monitor after start_monitor or stop_monitor, will cause exception
 scan_monitor = USBMonitor(filter_devices= None)
 
 # Start the daemon
