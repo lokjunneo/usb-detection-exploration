@@ -1,3 +1,11 @@
+## USB-Monitor
+
+(All rounded solution)
+
+- pyudev for linux
+- WMI for windows
+- I/O registry for Mac OS
+
 ## Pyudev
 
 Requires libudev 151 and newer. (Linux only)
