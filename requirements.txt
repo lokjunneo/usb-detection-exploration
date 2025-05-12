@@ -1,3 +1,6 @@
 usb-monitor
 pyudev
 pyusb
+
+pywin32
+wmi
